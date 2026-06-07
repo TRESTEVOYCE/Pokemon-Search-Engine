@@ -1,0 +1,238 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Flexo:wght@400;700&family=Press+Start+2P&family=Ubuntu:wght@400;700&display=swap');
+
+:root {
+    --pokedex-red: #dc0a2d;
+    --pokedex-dark-red: #8b0000;
+    --pokedex-blue: #28a745; /* Clean status light green/blue */
+    --pokedex-screen-bg: #232323;
+    --pokedex-card-bg: #85daef; /* Classic light blue inner screen */
+    --text-dark: #2c3e50;
+    --text-light: #ffffff;
+    --yellow-accent: #ffcb05;
+    --blue-accent: #3b4cca;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    /* High-tech Silph Co. Grid Vibe */
+    background: radial-gradient(circle at 25% 75%, #081018 0%, #0f171e 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    color: var(--text-dark);
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.title-container h1.tile {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.3rem; /* Slightly smaller to prevent text-wrapping layout breaks */
+    color: var(--yellow-accent);
+    text-shadow: 3px 3px 0px var(--blue-accent);
+    letter-spacing: 1px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+#header-sprite {
+    max-height: 50px;
+    object-fit: contain;
+}
+
+
+.input-box {
+    background: var(--pokedex-red);
+    border: 4px solid #333;
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 8px 0px var(--pokedex-dark-red), 0 10px 20px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 2.5rem;
+}
+
+.input-box label {
+    color: var(--text-light);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.65rem;
+    line-height: 1.5;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 3px solid #333;
+    border-radius: 8px;
+    background-color: #fff;
+    font-family: 'Ubuntu', sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.input-box input:focus {
+    border-color: var(--blue-accent);
+}
+
+.input-box button {
+    cursor: pointer;
+    background: var(--yellow-accent);
+    color: var(--blue-accent);
+    border: 3px solid #333;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 4px 0px #b58f00;
+    transition: all 0.1s ease;
+}
+
+.input-box button:hover {
+    background: #ffe066;
+}
+
+.input-box button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0px transparent;
+}
+
+
+.parent-container {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Main Pokemon Card */
+.pokemon-card {
+    width: 100%;
+    background: var(--pokedex-red);
+    border: 4px solid #333;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 0px var(--pokedex-dark-red), 0 15px 25px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Inner Screen Simulator */
+.pokemon-card .pokemon-info:first-child {
+    background: var(--pokedex-screen-bg);
+    border: 4px solid #555;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    position: relative;
+}
+
+/* Styling the image inside the inner screen */
+#pokemon-image {
+    max-width: 160px;
+    height: 160px;
+    object-fit: contain;
+    filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.5));
+    animation: bounce 2s infinite alternate ease-in-out;
+}
+
+/* Text Displays */
+#pokemon-name {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--yellow-accent);
+    text-transform: uppercase;
+    background: #333;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #555;
+    word-break: break-all;
+}
+
+#pokemon-type {
+    font-size: 1rem;
+    text-align: center;
+    color: var(--text-light);
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Error Card Customization */
+.error-card h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    color: #ff4d4d;
+    background: #333;
+    border: 3px solid #ff0000;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Hide containers if empty to avoid empty boxes floating around */
+.pokemon-card:empty,
+.error-card:empty,
+#pokemon-name:empty,
+#pokemon-type:empty,
+#Pokemon-not-found:empty {
+    display: none !important;
+}
+
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+    .title-container h1.tile {
+        font-size: 1.1rem;
+    }
+    
+    .input-box, .pokemon-card {
+        padding: 15px;
+    }
+    
+    .title-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
